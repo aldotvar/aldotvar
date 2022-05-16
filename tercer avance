@@ -1,0 +1,174 @@
+#include <iostream>
+#include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+#include <string>
+#include <fstream>
+
+using namespace std;
+struct info
+{
+	int id;
+	int nc;
+	char name[50];
+	char h[6];
+	char nt[50];
+	char des[100];
+	float put, ct, pu, total;
+	int idpaciente;
+
+};
+int main()
+{
+	info cita[3];
+	int i;
+	int k;
+	int opcion;
+	int salir;
+
+
+	do
+	{
+		cout << "CITA DENTAL" << endl;
+		cout << " 1. Agendar cita " << endl;
+		cout << " 2. Modificar cita " << endl;
+		cout << " 3. Eliminar cita " << endl;
+		cout << " 4. Lista de citas vigentes " << endl;
+		cout << " 5. Limpiar pantalla " << endl;
+		cout << " 6. Salir " << endl;
+
+		cout << "Ingrese opcion:" << endl;
+		cin >> opcion;
+
+		switch (opcion)
+		{
+
+		case 1:
+			for (i = 0; i < 3; i++)
+			{
+				cout << "Su id es:" << i + 1 << "\n";
+				cout << "Ingrese el consecutivo numero de cita " << endl;
+				cin >> cita[i].nc;
+				cout << "Ingrese el nombre del paciente" << endl;
+				cin >> cita[i].name;
+				cout << "A que hora quiere hacer su cita (En formato 24hrs.)" << endl;
+				cin >> cita[i].h;
+				cout << "Ingrese el Nombre del tratamiento" << endl;
+				cin >> cita[i].nt;
+				cout << "Ingrese la Descripcion" << endl;
+				cin >> cita[i].des;
+				cout << "Ingrese el Precio unitario del tratamiento" << endl;
+				cin >> cita[i].put;
+				cout << "Ingrese cantidad del tratamiento" << endl;
+				cin >> cita[i].ct;
+				cout << "Ingrese el Precio unitario" << endl;
+				cin >> cita[i].pu;
+				cout << "Ingrese el total \n";
+				cin >> cita[i].total;
+				cout << "\n";
+
+			}
+
+			break;
+		case 2:
+			cout << "ingrese el id de la cita a modificar \n";
+			cin >> k;
+			k = k - 1;
+			for (i = k; i <= k; i++)
+			{
+
+				cita[i].nc = i + 1;
+				cout << "Numero de cita: " << cita[i].nc << endl;
+				cout << "ingrese el Nuevo consecutivo numero de cita \n";
+				cin >> cita[i].nc;
+				cout << "ingrese el nombre del paciente \n";
+				cin >> cita[i].name;
+				cout << "A que hora quiere hacer su cita (en formato 24hrs.) \n";
+				cin >> cita[i].h;
+				cout << "ingrese el nombre del tratamiento \n";
+				cin >> cita[i].nt;
+				cout << "ingrese la descripcion \n";
+				cin >> cita[i].des;
+				cout << "ingrese  el Precio unitario del tratamiento \n";
+				cin >> cita[i].put;
+				cout << "Ingrese cantidad del tratamiento \n";
+				cin >> cita[i].ct;
+				cout << "Ingrese el Precio unitario \n";
+				cin >> cita[i].pu;
+				cout << "Ingrese el total \n";
+				cin >> cita[i].total;
+				cout << "\n";
+
+			}
+			break;
+		case 3:
+			cout << "Eliminar la cita" << endl;
+			break;
+		case 4:
+			cout << "Lista de vitas vigentes" << endl;
+			for (i = 0; i < 3; i++)
+			{
+
+				cout << " El id de alta es:" << i + 1 << "\n";
+				cout << "Consecutivo Numero de Cita: " << cita[i].nc << endl;
+				cout << "Nombre del Paciente: " << cita[i].name << endl;
+				cout << "A que hora (en formato 24hrs.): " << cita[i].h << endl;
+				cout << "Nombre del Tratamiento : " << cita[i].nt << endl;
+				cout << "Descripcion: " << cita[i].des << endl;
+				cout << "Precio unitario del tratamiento: " << cita[i].put << endl;
+				cout << "Cantidad del tratamiento: " << cita[i].ct << endl;
+				cout << "Precio Unitario: " << cita[i].pu << endl;
+				cout << "Total: " << cita[i].total << endl;
+			}
+			break;
+			break;
+		case 5:
+			system("cls");//system("cls");
+			return main();
+			break;
+		case 6:
+			cout << "Ingrese 1 para volver 2 para salir" << endl;
+			cin >> salir;
+			if (salir == 1)
+			{
+				return 0;
+			}
+			else
+			{
+				return main();
+			}
+			break;
+
+		default:
+			cout << "La opcion no es valida" << endl;
+		}
+		cout << "Ingrese 1 para volver 2 para salir" << endl;
+		cin >> salir;
+
+	} while (salir == 1);
+
+	int archivos(); {
+
+		ofstream archivo;
+		string nombrearchivo;
+		int texto;
+		string texto2;
+		int alta;
+
+		nombrearchivo = "citadental";
+
+		archivo.open(nombrearchivo.c_str(), ios::out);
+
+		if (archivo.fail())
+		{
+			cout << "ERROR NO SE PUDO CREAR";
+			exit(1);
+		}
+
+		archivo.close();
+	}
+
+
+}
+
+
